@@ -1,20 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text,Image, View } from 'react-native';
+import ImageViewer from './components/ImageViewer';
+import Button from './components/Button';
+import {NavigationContainer} from "@react-navigation/native"
+const PlaceholderImage = require('./assets/images/wp2.png');
 
 export default function App() {
   return (
+    <NavigationContainer>
+      <Navigator/>
+    
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View style={styles.imageContainer}>
+      <ImageViewer placeholderImageSource={PlaceholderImage} /> 
+      </View>
+      <View style={styles.footerContainer}>
+        <Button theme= "primary" label="Argentina" />
+        <Button theme="primary" label="Francia" />
+        <Button theme="primary" label="Croacia" />
+      </View>
       <StatusBar style="auto" />
     </View>
+    </NavigationContainer>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#25292e',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  imageContainer: {
+    flex: 1,
+    paddingTop: 58,
+  },
+  image: {
+    width: 220,
+    height: 160,
+    borderRadius: 18,
+    margin: 10,
+  },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   },
 });
